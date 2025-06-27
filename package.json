@@ -5,8 +5,5 @@
   "scripts": {
     "preinstall": "node session/decode.js",
     "start": "node session/start.js"
-  },
-  "dependencies": {
-    "megajs": "^1.0.6"
   }
 }
