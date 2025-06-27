@@ -2,30 +2,26 @@ name: Deploy VAJIRA-MD
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: ⬇️ Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: 🔧 Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: Install PM2
-        run: npm install pm2 -g
+      - name: 🔑 Decode before start
+        run: node session/decode.js
 
-      - name: Run decode
-        run: node ../session/decode.js
-
-      - name: Start bot with PM2
-        run: pm2 start ../session/start.js --no-daemon
+      - name: 🚀 Start the bot
+        run: node session/start.js
