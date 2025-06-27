@@ -4,6 +4,6 @@
 "main": "session/start.js",
 "scripts": {
 "preinstall": "node session/decode.js",
-"start": "pm2 start session/start.js --no-daemon"
+"start": "node session/start.js"
 }
 }
